@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Track</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<!-- Favicons -->
+<link href="{{ url_for('static', filename='images/favicon.png') }}" rel="icon">
+<link href="{{ url_for('static', filename='images/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+
+<!-- Main CSS File -->
+<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+
+ <!-- Vendor JS Files -->
+ <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+ <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+ <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+ <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+ <script src="/static/vendor/purecounter/purecounter_vanilla.js"></script>
+ <script src="{{ url_for('static', filename='vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+ <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+ <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+
+ <!-- Main JS File -->
+ <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body class="index-page">
+  
+    <header id="header" class="header d-flex align-items-center sticky-top">
+      <div class="container-fluid container-xl position-relative d-flex align-items-center">
+  
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1 class="sitename">TRACK</h1>
+        </a>
+  
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="/templates/index.html">Home</a></li>
+            <li><a href="/about"  class="active">About</a></li>
+            <li><a href="#services">Test</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+  
+      </div>
+    </header>
+
+    <section id="featured-services" class="featured-services section" style="margin-top: 1cm;">
+
+        <div class="container">
+  
+          <div class="row gy-4">
+  
+            <div class="col-lg-4 d-flex" >
+              <div class="service-item position-relative">
+                <div class="icon"><i class="bi bi-activity icon"></i></div>
+                <h4><a href="" class="stretched-link">Health Matters</a></h4>
+                <p>Managing diabetes is vital for maintaining your health.</p>
+              </div>
+            </div><!-- End Service Item -->
+  
+            <div class="col-lg-4 d-flex">
+              <div class="service-item position-relative">
+                <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
+                <h4><a href="" class="stretched-link">Well-Balanced Care</a></h4>
+                <p>Achieving well-rounded health through balanced diabetes management.</p>
+              </div>
+            </div><!-- End Service Item -->
+  
+            <div class="col-lg-4 d-flex">
+              <div class="service-item position-relative">
+                <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
+                <h4><a href="" class="stretched-link">Check Your Calendar</a></h4>
+                <p>Stay updated on regular mental checkups and important dates.</p>
+              </div>
+            </div><!-- End Service Item -->
+  
+          </div>
+  
+        </div>
+  
+      </section><!-- /Featured Services Section -->
+
+      <!-- Stats Section -->
+    <section id="stats" class="stats section">
+
+        <div class="container">
+  
+          <div class="row gy-4">
+  
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span class="purecounter" data-purecounter-start="0" data-purecounter-end="711800" data-purecounter-duration="2"></span>
+                <script>
+                  new PureCounter();
+                </script>
+                <p>Total Cases of Diabetes in Adults (2021)</p>
+              </div>
+            </div><!-- End Stats Item -->
+  
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span data-purecounter-start="0" data-purecounter-end="50.4" data-purecounter-duration="2" class="purecounter"></span>
+                <p>Percentage of Undiagnosed Diabetes Cases</p>
+                <script>
+                  new PureCounter();
+                </script>
+              </div>
+            </div><!-- End Stats Item -->
+  
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span data-purecounter-start="0" data-purecounter-end="1769" data-purecounter-duration="2" class="purecounter"></span>
+                <script>
+                  new PureCounter();
+                </script>
+                <p>Total Diabetes-Related Health Expenditure (Millions)</p>
+              </div>
+            </div><!-- End Stats Item -->
+  
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span data-purecounter-start="0" data-purecounter-end="14.9" data-purecounter-duration="2" class="purecounter"></span>
+                <script>
+                  new PureCounter();
+                </script>
+                <p>Prevalence of Diabetes in Adults(%)</p>
+              </div>
+            </div><!-- End Stats Item -->
+  
+          </div>
+  
+        </div>
+  
+      </section><!-- /Stats Section -->
+
+
+</body>

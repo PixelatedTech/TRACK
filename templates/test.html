@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Track</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<!-- Favicons -->
+<link href="{{ url_for('static', filename='images/favicon.png') }}" rel="icon">
+<link href="{{ url_for('static', filename='images/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+<!-- Main CSS File -->
+<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+
+ <!-- Vendor JS Files -->
+ <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+ <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+ <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+ <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+ <script src="{{ url_for('static', filename='vendor/purecounter/purecounter_vanilla.js') }}"></script>
+ <script src="{{ url_for('static', filename='vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+ <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+ <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+
+ <!-- Main JS File -->
+ <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+</head>
+<body class="index-page">
+
+    <header id="header" class="header d-flex align-items-center sticky-top">
+      <div class="container-fluid container-xl position-relative d-flex align-items-center">
+  
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1 class="sitename">TRACK</h1>
+        </a>
+  
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="/test" class="active">Test</a></li>
+            <li><a href="#team">Recommandations</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+  
+      </div>
+    </header>
+
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <script>
+          AOS.init();
+        </script>
+        
+        <span>Track Your Diabetes</span>
+        <h2>Test</h2>
+        <p>Help us understand your condition better by providing accurate information about your health and measures.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100" 
+     style="width: 100%; margin:0 auto; display: flex; justify-content: center; align-items: center;">
+
+          <div class="col">
+
+            <form id="predictionForm" action="/test" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-2">
+                <h2>Demographic Information</h2>
+
+                <div class="col-md-4">
+                  <label for="gender-field" class="pb-2">Gender</label>
+                  <select name="gender" id="gender-field" class="form-control" required>
+                      <option value="" disabled {% if not form_data %}selected{% endif %}>Select an option</option>
+                      <option value="0" {% if form_data and form_data['gender'] == '0' %}selected{% endif %}>Female</option>
+                      <option value="1" {% if form_data and form_data['gender'] == '1' %}selected{% endif %}>Male</option>
+                      <!-- female = 0, male = 1  -->
+                  </select>
+                </div>
+
+                <div class="col-md-4">
+                  <label for="age-field" class="pb-2">Age</label>
+                  <input type="number" class="form-control" name="age" id="age-field" min="5" max="100" value="{{ form_data['age'] if form_data else '' }}" required>
+                </div>
+              
+                
+
+                <div class="col-md-4">
+                  <label for="income-field" class="pb-2">Annual Income</label>
+                  <select name="income" id="income-field" class="form-control" required>
+                      <option value="" disabled {% if not form_data %}selected{% endif %}>Select an option</option>
+                      <option value="1" {% if form_data and form_data['income'] == '1' %}selected{% endif %}>Less than $10,000</option>
+                      <option value="2" {% if form_data and form_data['income'] == '2' %}selected{% endif %}>$10,000 - $15,000</option>
+                      <option value="3" {% if form_data and form_data['income'] == '3' %}selected{% endif %}>$15,000 - $20,000</option>
+                      <option value="4" {% if form_data and form_data['income'] == '4' %}selected{% endif %}>$20,000 - $25,000</option>
+                      <option value="5" {% if form_data and form_data['income'] == '5' %}selected{% endif %}>$25,000 - $35,000</option>
+                      <option value="6" {% if form_data and form_data['income'] == '6' %}selected{% endif %}>$35,000 - $50,000</option>
+                      <option value="7" {% if form_data and form_data['income'] == '7' %}selected{% endif %}>$50,000 - $75,000</option>
+                      <option value="8" {% if form_data and form_data['income'] == '8' %}selected{% endif %}>Greater than $75,000</option>
+                  </select>
+                </div>
+              
+
+                <div class="col-md-12">
+                  <label></label>
+                </div>
+
+                <div class="col-md-8">
+                  <label for="edu-field" class="pb-2">Education</label>
+                  <select name="edu" id="edu-field" class="form-control" required>
+                      <option value="" disabled {% if not form_data %}selected{% endif %}>Select an option</option>
+                      <option value="1" {% if form_data and form_data['edu'] == '1' %}selected{% endif %}>Never attended school or only kindergarten</option>
+                      <option value="2" {% if form_data and form_data['edu'] == '2' %}selected{% endif %}>Primary School</option>
+                      <option value="3" {% if form_data and form_data['edu'] == '3' %}selected{% endif %}>Secondary School</option>
+                      <option value="4" {% if form_data and form_data['edu'] == '4' %}selected{% endif %}>Polytechnic or Junior College (JC)</option>
+                      <option value="5" {% if form_data and form_data['edu'] == '5' %}selected{% endif %}>University (1 to 3 years or Diploma)</option>
+                      <option value="6" {% if form_data and form_data['edu'] == '6' %}selected{% endif %}>University (4 years or more, Degree and above)</option>
+                  </select>
+                </div>
+              
+
+                <div class="col-md-4">
+                  <label for="bmi-field" class="pb-2">BMI</label>
+                  <input type="number" class="form-control" name="bmi" id="bmi-field" min="5" max="100" value="{{ form_data['bmi'] if form_data else '' }}" required>
+                </div>
+              
+
+              </div>
+
+
+              <div class="row gy-2 mt-5">
+                <h2>Medical History</h2>
+
+                <div class="col-md-4">
+                  <label for="bp-field" class="pb-2">History of High Blood Pressure</label>
+                  <select name="bp" id="bp-field" class="form-control" required>
+                      <option value="" disabled {% if not form_data %}selected{% endif %}>Select an option</option>
+                      <option value="1" {% if form_data and form_data['bp'] == '1' %}selected{% endif %}>Yes</option>
+                      <option value="2" {% if form_data and form_data['bp'] == '2' %}selected{% endif %}>No</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4">
+                  <label for="chol-field" class="pb-2">History of Cholesterol</label>
+                  <select name="chol" id="chol-field" class="form-control" required>
+                      <option value="" disabled {% if not form_data %}selected{% endif %}>Select an option</option>
+                      <option value="1" {% if form_data and form_data['chol'] == '1' %}selected{% endif %}>Yes</option>
+                      <option value="2" {% if form_data and form_data['chol'] == '2' %}selected{% endif %}>No</option>
+                  </select>
+                </div>
+              
+
+                <div class="col-md-4">
+                  <label for="cholcheck-field" class="pb-2">Cholesterol Check in the Last 5 Years</label>
+                  <select name="cholcheck" id="cholcheck-field" class="form-control" required>
+                      <option value="" disabled {% if not form_data %}selected{% endif %}>Select an option</option>
+                      <option value="1" {% if form_data and form_data['cholcheck'] == '1' %}selected{% endif %}>Yes</option>
+                      <option value="2" {% if form_data and form_data['cholcheck'] == '2' %}selected{% endif %}>No</option>
+                  </select>
+                </div>
+              
+
+                <div class="col-md-12">
+                  <label></label>
+                </div>
+                
+                <div class="col-md-8">
+                  <label for="stroke">History of Stroke</label>
+                  <select id="stroke" name="stroke" class="form-control" required>
+                      <option value="" disabled {% if not form_data %}selected{% endif %}>Select an option</option>
+                      <option value="1" {% if form_data and form_data['stroke'] == '1' %}selected{% endif %}>Yes</option>
+                      <option value="0" {% if form_data and form_data['stroke'] == '0' %}selected{% endif %}>No</option>
+                  </select>
+                </div>
+              
+
+                <div class="col-md-12">
+                  <label></label>
+                </div>
+
+                <div class="col-md-8">
+                  <label for="heartDiseaseOrAttack">Heart Disease or Heart Attack</label>
+                  <select id="heartDiseaseOrAttack" name="heartDiseaseOrAttack" class="form-control" required>
+                      <option value="" disabled {% if not form_data %}selected{% endif %}>Select an option</option>
+                      <option value="1" {% if form_data and form_data['heartDiseaseOrAttack'] == '1' %}selected{% endif %}>Yes</option>
+                      <option value="0" {% if form_data and form_data['heartDiseaseOrAttack'] == '0' %}selected{% endif %}>No</option>
+                  </select>
+                </div>
+              
+
+              </div>
+
+
+
+              <div class="row gy-2 mt-5">
+                <h2>General Health Status</h2>
+  
+                <div class="col-md-5">
+                  <label for="generalHealth">General Health (Rate from 1 - 5): <span id="generalHealthValue">{{ form_data['generalHealth'] if form_data else '3' }}</span></label>
+                  <input type="range" id="generalHealth" name="generalHealth" class="form-range" min="1" max="5" 
+                         value="{{ form_data['generalHealth'] if form_data else '3' }}" 
+                         oninput="document.getElementById('generalHealthValue').innerText = this.value">
+                </div>
+              
+
+                  
+                <div class="col-md-2"></div>
+
+
+                <div class="col-md-5">
+                  <label for="diffWalk">Difficulty Walking</label>
+                  <select id="diffWalk" name="diffWalk" class="form-control" required>
+                      <option value="" disabled {% if not form_data %}selected{% endif %}>Select an option</option>
+                      <option value="1" {% if form_data and form_data['diffWalk'] == '1' %}selected{% endif %}>Yes</option>
+                      <option value="0" {% if form_data and form_data['diffWalk'] == '0' %}selected{% endif %}>No</option>
+                  </select>
+                </div>
+              
+
+                <div class="col-md-12">
+                  <label></label>
+                </div>
+  
+                <div class="col-md-5">
+                  <label for="physicalHealth">Physical Health (Rate from 1 - 5): 
+                      <span id="physicalHealthValue">{{ form_data['physicalHealth'] if form_data else '3' }}</span>
+                  </label>
+                  <input type="range" id="physicalHealth" name="physicalHealth" class="form-range" min="1" max="5" 
+                         value="{{ form_data['physicalHealth'] if form_data else '3' }}" 
+                         oninput="document.getElementById('physicalHealthValue').innerText = this.value">
+                </div>
+              
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-5">
+                  <label for="mentalHealth">Mental Health (Rate from 1 - 5): 
+                      <span id="mentalHealthValue">{{ form_data['mentalHealth'] if form_data else '3' }}</span>
+                  </label>
+                  <input type="range" id="mentalHealth" name="mentalHealth" class="form-range" min="1" max="5" 
+                         value="{{ form_data['mentalHealth'] if form_data else '3' }}" 
+                         oninput="document.getElementById('mentalHealthValue').innerText = this.value">
+                </div>
+              
+                
+              </div>
+
+              <div class="row gy-2 mt-5">
+                <h2>Lifestyle Factors</h2>
+
+
+                <div class="col-md-6">
+                  <label for="fruits">Do you consume fruit 1 or more times per day?</label>
+                  <select id="fruits" name="fruits" class="form-control" required>
+                      <option value="" disabled {% if not form_data %}selected{% endif %}>Select an option</option>
+                      <option value="1" {% if form_data and form_data['fruits'] == '1' %}selected{% endif %}>Yes</option>
+                      <option value="0" {% if form_data and form_data['fruits'] == '0' %}selected{% endif %}>No</option>
+                  </select>
+                </div>
+              
+
+                <div class="col-md-6">
+                  <label for="veggies">Do you consume vegetables 1 or more times per day?</label>
+                  <select id="veggies" name="veggies" class="form-control" required>
+                      <option value="" disabled {% if not form_data %}selected{% endif %}>Select an option</option>
+                      <option value="1" {% if form_data and form_data['veggies'] == '1' %}selected{% endif %}>Yes</option>
+                      <option value="0" {% if form_data and form_data['veggies'] == '0' %}selected{% endif %}>No</option>
+                  </select>
+                </div>
+              
+
+                <div class="col-md-12">
+                  <label></label>
+                </div>
+  
+                <div class="col-md-6 mb-12">
+                  <label for="smoker">Have you smoked at least 100 cigarettes in your entire life? <br><span class="text-muted">[Note: 5 packs = 100 cigarettes]</span></label>
+                  <select id="smoker" name="smoker" class="form-control" required>
+                      <option value="" disabled {% if not form_data %}selected{% endif %}>Select an option</option>
+                      <option value="1" {% if form_data and form_data['smoker'] == '1' %}selected{% endif %}>Yes</option>
+                      <option value="0" {% if form_data and form_data['smoker'] == '0' %}selected{% endif %}>No</option>
+                  </select>
+                </div>
+              
+
+                <div class="col-md-6">
+                  <label for="physActivity">Have you engaged in physical activity in the past 30 days?<br><span class="text-muted">[not including your job]</span></label>
+                  <select id="physActivity" name="physActivity" class="form-control" required>
+                      <option value="" disabled {% if not form_data %}selected{% endif %}>Select an option</option>
+                      <option value="1" {% if form_data and form_data['physActivity'] == '1' %}selected{% endif %}>Yes</option>
+                      <option value="0" {% if form_data and form_data['physActivity'] == '0' %}selected{% endif %}>No</option>
+                  </select>
+                </div>
+              
+
+                <div class="col-md-12">
+                  <label></label>
+                </div>
+
+             
+                <div class="col-md-8 mb-12">
+                  <label for="hvyAlcoholConsump">Are you a heavy drinker? <br><span class="text-muted">[Adult men: more than 14 drinks per week, Adult women: more than 7 drinks per week]</span></label>
+                  <select id="hvyAlcoholConsump" name="hvyAlcoholConsump" class="form-control" required>
+                      <option value="" disabled {% if not form_data %}selected{% endif %}>Select an option</option>
+                      <option value="1" {% if form_data and form_data['hvyAlcoholConsump'] == '1' %}selected{% endif %}>Yes</option>
+                      <option value="0" {% if form_data and form_data['hvyAlcoholConsump'] == '0' %}selected{% endif %}>No</option>
+                  </select>
+                </div>
+              
+              </div>
+
+
+
+              <div class="row gy-2 mt-5">
+                <h2>Healthcare Access</h2>
+
+
+                <div class="col-md-12">
+                  <label for="anyHealthcare">Do you have any kind of healthcare coverage [ Health Insurance or Prepaid Plans (e.g., HMO)] </label>
+                  <select id="anyHealthcare" name="anyHealthcare" class="form-control" required>
+                      <option value="" disabled {% if not form_data %}selected{% endif %}>Select an option</option>
+                      <option value="1" {% if form_data and form_data['anyHealthcare'] == '1' %}selected{% endif %}>Yes</option>
+                      <option value="0" {% if form_data and form_data['anyHealthcare'] == '0' %}selected{% endif %}>No</option>
+                  </select>
+                </div>
+              
+
+                <div class="col-md-12">
+                  <label></label>
+                </div>
+
+                <div class="col-md-12">
+                  <label for="noDocbcCost">In the past 12 months, was there a time when you needed to see a doctor but could not due to cost?</label>
+                  <select id="noDocbcCost" name="noDocbcCost" class="form-control" required>
+                      <option value="" disabled {% if not form_data %}selected{% endif %}>Select an option</option>
+                      <option value="1" {% if form_data and form_data['noDocbcCost'] == '1' %}selected{% endif %}>Yes</option>
+                      <option value="0" {% if form_data and form_data['noDocbcCost'] == '0' %}selected{% endif %}>No</option>
+                  </select>
+                </div>
+              
+
+                <div class="col-md-12 text-center mt-4">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+                
+              </div>
+
+
+              <!-- Display Result Below the Form -->
+              {% if result %}
+              <div class="col-md-12 mt-4 text-center">
+                  <h3 style="color: #10bc69;">Our Prediction Result: {{ result }}</h3>
+              </div>
+              {% endif %}
+
+                
+            </form>
+          </div><!-- End Contact Form -->
+
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+
+
+    
+    
+
+</body>

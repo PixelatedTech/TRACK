@@ -67,4 +67,7 @@ def test():
     return render_template('test.html', result=result, form_data=form_data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=8000)
+
+# if __name__ == '__main__':
+#     app.run(debug=True)
